@@ -2,9 +2,9 @@ resources:
   root: file:/etc/secret/local
   driver-class: com.mysql.cj.jdbc.Driver
   path:
-    gig-endpoint: /HSON_ENDPOINT
-    gig-username: /HSON_USERNAME
-    gig-password: /HSON_PASSWORD
+    hson-endpoint: /HSON_ENDPOINT
+    hson-username: /HSON_USERNAME
+    hson-password: /HSON_PASSWORD
     redis-endpoint: /HSON_REDIS_ENDPOINT
 
 spring:
@@ -32,6 +32,7 @@ server:
 spring:
   profiles: default
   redis:
+    host: localhost
     port: 6370
     ttl: 2592000
 

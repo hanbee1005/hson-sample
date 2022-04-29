@@ -14,13 +14,13 @@ import java.nio.charset.StandardCharsets;
 public class DataSourceConfig {
     private static final String MYSQL_FORMAT = "jdbc:mysql://%s/hsondb?useMysqlMetadata=true&createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=UTC";
 
-    @Value("${resources.root}${resources.path.gig-endpoint}")
+    @Value("${resources.root}${resources.path.hson-endpoint}")
     private Resource endpoint;
 
-    @Value("${resources.root}${resources.path.gig-username}")
+    @Value("${resources.root}${resources.path.hson-username}")
     private Resource username;
 
-    @Value("${resources.root}${resources.path.gig-password}")
+    @Value("${resources.root}${resources.path.hson-password}")
     private Resource password;
 
     @Value("${resources.driver-class}")
