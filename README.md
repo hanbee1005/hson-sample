@@ -67,5 +67,10 @@ spring:
 3. 위 방식 또는 DataSourceConfig.java 파일로 설정
 
 ### 3. Redis 설정하기
+1. dependency 추가
+```
+implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+```
+2. 설정 파일 작성 (RedisConfig.java)
 
 ### 4. jwt token 사용하기
