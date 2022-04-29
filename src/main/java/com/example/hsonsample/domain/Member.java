@@ -1,10 +1,16 @@
 package com.example.hsonsample.domain;
 
+import com.example.hsonsample.dto.MemberJoinRequest;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class Member {
 
     @Id
@@ -16,4 +22,17 @@ public class Member {
     private String name;
     private String birthdate;
     private String phoneNumber;
+
+    public Member(MemberJoinRequest request) {
+        this.email = request.getEmail();
+        this.password = encryptPassword(request.getPassword());
+        this.name = request.getName();
+        this.birthdate = request.getBirthdate();
+        this.phoneNumber = request.getPhoneNumber();
+    }
+
+    private String encryptPassword(String password) {
+        // TODO: encrypt 로직 추가
+        return password;
+    }
 }
