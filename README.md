@@ -74,3 +74,9 @@ implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 2. 설정 파일 작성 (RedisConfig.java)
 
 ### 4. jwt token 사용하기
+
+### 5. jwt token을 redis에 저장하기
+
+### 6. swagger 연동하기
+
+### 7. social login 기능 구현하기
