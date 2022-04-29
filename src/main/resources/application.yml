@@ -1,0 +1,48 @@
+resources:
+  root: file:/etc/secret/local
+  driver-class: com.mysql.cj.jdbc.Driver
+  path:
+    gig-endpoint: /HSON_ENDPOINT
+    gig-username: /HSON_USERNAME
+    gig-password: /HSON_PASSWORD
+    redis-endpoint: /HSON_REDIS_ENDPOINT
+
+spring:
+  profiles:
+    active: default
+
+  datasource:
+    hikari:
+      minimum-idle: 50
+      maximum-pool-size: 50
+
+server:
+  port: 9090
+  tomcat:
+    threads:
+      max: 512
+  servlet:
+    context-path: /v1/hson-sample
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+---
+spring:
+  profiles: default
+  redis:
+    port: 6370
+    ttl: 2592000
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    # DDL 정의시 데이터베이스의 고유 기능을 사용합니다.
+    generate-ddl: true
+    # API 호출시, SQL 문을 콘솔에 출력한다.
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

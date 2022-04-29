@@ -36,6 +36,35 @@ docker-compose up -d
 ```
 
 ### 2. MySQL DB 설정하기
+1. dependency 추가 (build.gradle)
+```
+implementation 'mysql:mysql-connector-java'
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+```
+2. DB 접속 설정 정보 지정 (+ jpa 설정 추가)
+```yaml
+spring:
+  ...
+
+  datasource:
+    url: jdbc:mysql://HOST:PORT/DB_NAME?useSSL=false
+    username: USERNAME
+    password: PASSWORD
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    # DDL 정의시 데이터베이스의 고유 기능을 사용합니다.
+    generate-ddl: true
+    # API 호출시, SQL 문을 콘솔에 출력한다.
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+```
+3. 위 방식 또는 DataSourceConfig.java 파일로 설정
 
 ### 3. Redis 설정하기
 
