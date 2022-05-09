@@ -1,10 +1,12 @@
 package com.example.hsonsample.dto;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.NotEmpty;
 
 @Getter
+@Builder
 public class MemberJoinRequest {
     @NotEmpty
     private String email;
