@@ -28,6 +28,10 @@ server:
       enabled: true
       force: true
 
+jwt:
+  secret: aHNvbiBzYW1wbGUgcHJvamVjdA==
+  access-expired: 30000
+
 ---
 spring:
   profiles: default
