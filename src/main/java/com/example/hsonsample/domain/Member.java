@@ -2,6 +2,7 @@ package com.example.hsonsample.domain;
 
 import com.example.hsonsample.constant.Role;
 import com.example.hsonsample.dto.MemberJoinRequest;
+import com.example.hsonsample.utils.encryption.EncryptedStringConverter;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,9 +18,14 @@ public class Member {
     private Long id;
 
     private String email;
+
+    @Convert(converter = EncryptedStringConverter.class)
     private String password;
+
     private String name;
     private String birthdate;
+
+    @Convert(converter = EncryptedStringConverter.class)
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
@@ -27,16 +33,11 @@ public class Member {
 
     public Member(MemberJoinRequest request) {
         this.email = request.getEmail();
-        this.password = encryptPassword(request.getPassword());
+        this.password = request.getPassword();
         this.name = request.getName();
         this.birthdate = request.getBirthdate();
         this.phoneNumber = request.getPhoneNumber();
         this.role = Role.USER;
-    }
-
-    private String encryptPassword(String password) {
-        // TODO: encrypt 로직 추가
-        return password;
     }
 
     public boolean isLoggedIn(String password) {

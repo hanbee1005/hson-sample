@@ -37,6 +37,11 @@ dependencies {
 
     // jwt
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+    // aws
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.205')
+    implementation 'com.amazonaws:aws-encryption-sdk-java:2.3.3'
+    implementation "com.amazonaws:aws-java-sdk:1.10.55"
 }
 
 tasks.named('test') {

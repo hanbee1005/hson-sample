@@ -32,6 +32,11 @@ jwt:
   secret: aHNvbiBzYW1wbGUgcHJvamVjdA==
   access-expired: 30000
 
+aws:
+  region: ap-northeast-2
+  kms:
+    key-arn: ${AWS_KMS_KEY_ARN}
+
 ---
 spring:
   profiles: default
