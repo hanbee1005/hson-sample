@@ -1,0 +1,23 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= Hello
+
+== [small]#인덱스 페이지#
+[red big]#Overview#
+----
+hello
+----
+
+[red big]#HTTP request#
+
+include::{snippets}/hello/http-request.adoc[]
+
+[red big]#HTTP response#
+
+include::{snippets}/hello/http-response.adoc[]
+
+[red big]#Response fields#
+
+include::{snippets}/hello/response-fields.adoc[]
