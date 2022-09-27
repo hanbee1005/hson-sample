@@ -22,7 +22,7 @@ server:
     threads:
       max: 512
   servlet:
-    context-path: /v1/hson-sample
+    context-path: /
     encoding:
       charset: UTF-8
       enabled: true
@@ -35,7 +35,7 @@ jwt:
 aws:
   region: ap-northeast-2
   kms:
-    key-arn: ${AWS_KMS_KEY_ARN}
+    key-arn: AWS_KMS_KEY_ARN # ${AWS_KMS_KEY_ARN}
 
 ---
 spring:
