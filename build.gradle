@@ -68,6 +68,15 @@ test {
 asciidoctor {
     inputs.dir snippetsDir
     dependsOn test
+
+    // 변환할 adoc들을 명시한다.
+    attributes 'snippets': snippetsDir
+    sources{
+        include("**/index.adoc")
+    }
+
+    // include 연산을 사용할 때 base 디렉터리를 지정해줍니다.
+    baseDirFollowsSourceFile()
 }
 
 // bootjar과 관련된 설정이며, 스니펫을 이용해 문서 작성 후,
